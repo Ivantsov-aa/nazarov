@@ -1,0 +1,10 @@
+.swiper-container
+  .swiper-wrapper
+    each item in bannerSlider
+      .swiper-slide
+        img(src=item.img alt='banner')
+        a(href='#').banner__link
+        div(class=`banner__text ${item.orientation}`)
+          h1 #{item.title}
+          a(href='#') Смотреть
+  .swiper-pagination

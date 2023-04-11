@@ -1,0 +1,5 @@
+<svg id='clear-btn' width="25" height="25" viewBox="0 0 25 25" fill="none"
+  xmlns="http://www.w3.org/2000/svg">
+  <path d="M18.8867 6.24536L5.38672 19.7454" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
+  <path d="M18.8867 19.7454L5.38672 6.24536" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
+</svg>

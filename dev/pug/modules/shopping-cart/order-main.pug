@@ -1,0 +1,29 @@
+section.order-main 
+  form.order-main__steps-wrapper 
+    ol.order-main__title
+      li(data-id='1').active доставка
+      li(data-id='2') пользователь
+      li(data-id='3') оплата
+    input.city(type='text' required placeholder='Введите город') 
+    .way-to-get__radio
+      input(id='courier' name='way-to-get' type='radio')
+      label(for='courier')  Курьерская доставка
+      input(id='pickup' name='way-to-get' type='radio')
+      label(for='pickup') Самовывоз
+    .delivery-methods 
+  section.sc-main__order-total 
+    h3 итоговая информация о заказе
+    .sc-main__order-info 
+      p Стоимость заказа
+        span 50 800 ₽
+      p Сумма скидки
+        span 10 800 ₽
+      p.delivery Доставка
+        span 500 ₽
+    .sc-main__payment
+      .row 
+        p Количество
+        p 3 шт
+      .row 
+        h6 итого
+        h6 50 800 ₽

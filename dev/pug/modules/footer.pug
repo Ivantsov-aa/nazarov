@@ -1,0 +1,35 @@
+footer.footer
+  .footer__wrapper
+    .footer__col
+      .footer__row
+        h6 Для клиентов
+      .footer__row
+        a(href='mailto:nazarov@gmail.com') nazarov@gmail.com
+    .footer__col
+      .footer__row
+        h6 Для бизнес-партнеров
+      .footer__col
+        a(href='mailto:nazarovbusiness@gmail.com') nazarovbusiness@gmail.com
+        a(href='tel:+79876543210') +7 987 654 32 10
+    .footer__col.add-info
+      .footer__row
+        p
+          span Частное унитарное предприятие по оказанию услуг «Назаров»
+          span Юридический и почтовый адрес: Российская Федерация, 220131, г. Москва, ул. Кольцова, д.38, кв.103
+          span Фактический адрес: Российская Федерация, 220035, г.Москва, ул.Тимирязева, 46в, каб.19а
+          span УНП 192481189 Банковские реквизиты: р/с BY16PJCB30120517471000000978 (EUR)
+      .footer__row.policy
+        a(href='#') Политика конфиденциальности
+        a(href='#') Информация о cookies
+        span Дизайн и разработка сайта: 
+          a(href='https://www.medialine.by/' target='_blank') Media Line
+    .footer__col
+      .footer__row.footer__soclinks
+        each item in footer__soclinks
+          a(href=item.path)
+            svg(width='24px' height='24px')
+              use(href=`./img/svg/footer/${item.icon}.svg#${item.icon}`)
+      .footer__row
+        button.top-up
+          svg(width='24px' height='24px')
+            use(href=`./img/svg/footer/top-up.svg#top-up`)

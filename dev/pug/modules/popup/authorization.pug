@@ -1,0 +1,55 @@
+.auth-popup
+  .auth-popup__header
+    .auth-popup__toggle-buttons
+      button.active#auth Авторизация
+      button#registration Создать аккаунт
+    button.close-popup
+      svg(width='24px' height='24px')
+        use(href=`./img/svg/header/clear-btn.svg#clear-btn`)
+  form.active.auth
+    label.text
+      input(type='text' placeholder='Электронная почта' autocomplete='email')
+    label.text
+      input(type='password' placeholder='Пароль' autocomplete='password')
+    button.recovery Забыли пароль?
+    button.btn-fill Войти
+    p или
+    .auth-popup__footer
+      button.btn-outline.apple 
+        svg(width='24px' height='24px')
+          use(href=`./img/svg/header/apple.svg#apple`)
+        span Apple ID
+      button.btn-outline.google
+        svg(width='24px' height='24px')
+          use(href=`./img/svg/header/google.svg#google`)
+        span Google
+  form.registration
+    .registration__wrapper
+      label(class='text error' data-value='Это поле нужно заполнить.')
+        input(type='text' placeholder='Фамилия')
+      label.text
+        input(type='text' placeholder='Имя')
+      label.text
+        input(type='text' placeholder='Электронная почта' autocomplete='email')
+      label.text
+        input(type='password' placeholder='Пароль' autocomplete='new-password')
+      label.text
+        input(type='password' placeholder='Повторить пароль' autocomplete='new-password')
+
+      label.checkbox
+        input(type="checkbox" name="agreement_profiling")
+        span 
+          svg(width='18px' height='18px')
+            use(href=`./img/svg/header/default-checkbox.svg#default-checkbox`)
+        | Я даю согласие на сбор, разглашение или обработку моих персональных данных в целях профилирования 
+      label.checkbox
+        input(type="checkbox" name="agreement_marketing")
+        span 
+          svg(width='18px' height='18px')
+            use(href=`./img/svg/header/default-checkbox.svg#default-checkbox`)
+        | Я даю согласие на сбор и использование моих персональных данных в целях маркетинга
+    p.confidence__agreement Создавая аккаунт, вы принимаете наши 
+      a(href='#') Правила и условия 
+      | #{' '} и подтверждаете, что ознакомились с нашей 
+      a(href='#') Политикой конфиденциальности.
+    button.btn-fill Создать аккаунт

@@ -1,0 +1,25 @@
+main.au-main
+  section.au-main__banner
+    img(src='./img/about-us/banner.png' alt='banner')
+    div(class='banner__text right')
+      h1 Илья Назаров
+      p Lorem ipsum dolor sit amet consectetur. Scelerisque ultrices magna lobortis a etiam. In scelerisque ullamcorper mattis pretium amet at ac pellentesque iaculis. Diam praesent sed eget habitant in. Eget et maecenas aliquet enim. Sagittis id ut nec semper eu lectus donec massa mauris.
+  section.au-main__content 
+    .block
+    .block
+      h6 Lorem ipsum dolor sit amet consectetur. Scelerisque ultrices magna lobortis a etiam. In scelerisque ullamcorper mattis pretium amet at ac pellentesque iaculis. Diam praesent sed eget habitant in. Eget et maecenas aliquet enim. Sagittis id ut nec semper eu lectus donec massa mauris.
+      p Lorem ipsum dolor sit amet consectetur. Scelerisque ultrices magna lobortis a etiam. In scelerisque ullamcorper mattis pretium amet at ac pellentesque iaculis. Diam praesent sed eget habitant in. Eget et maecenas aliquet enim. Sagittis id ut nec semper eu lectus donec massa mauris.
+      p Lorem ipsum dolor sit amet consectetur. Scelerisque ultrices magna lobortis a etiam. In scelerisque ullamcorper mattis pretium amet at ac pellentesque iaculis. Diam praesent sed eget habitant in. Eget et maecenas aliquet enim. Sagittis id ut nec semper eu lectus donec massa mauris.
+    .block
+    .block
+    .block
+    .block
+  section.au-main__collections 
+    h3 Наши коллекции
+    .collections__wrapper
+      each item in products
+        a(href='')
+          .img__wrapper
+            img(src=item.img alt='banner')
+          h6 коллекция
+            span #{item.collection}

@@ -1,0 +1,52 @@
+.mp__subscription-form {
+  max-width: 444px;
+  width: 100%;
+  margin: 0 auto 128px;
+
+  @include xxs-block() {
+    padding: 0 15px;
+    margin-bottom: 32px;
+  }
+
+  h4 {
+    @include font-params(24px, 40px);
+    font-weight: 400;
+    margin-bottom: 32px;
+
+    @include xxs-block() {
+      @include font-params(18px, 22px);
+    }
+  }
+
+  .form__input {
+    @include flex-params(row, space-between, center);
+    padding-bottom: 24px;
+    border-bottom: 2px solid $black;
+
+    @include xxs-block() {
+      padding-bottom: 16px;
+    }
+
+    input {
+      @include font-params(18px, 26px);
+
+      &::placeholder {
+        color: #babcc0;
+      }
+
+      @include xxs-block() {
+        @include font-params(16px, 26px);
+        width: 50%;
+      }
+
+      &.btn-outline {
+        @include font-params(17px, 21px);
+        padding: 16px 24px;
+
+        @include xxs-block() {
+          padding: 8px 16px;
+        }
+      }
+    }
+  }
+}

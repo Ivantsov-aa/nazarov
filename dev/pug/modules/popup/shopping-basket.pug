@@ -1,0 +1,42 @@
+.shopping-popup
+  .shopping-popup__title
+    h3 быстрый заказ
+    button.close-popup
+      svg(width='24px' height='24px')
+        use(href=`./img/svg/header/clear-btn.svg#clear-btn`)
+  .shopping-popup__product-list
+    each item in shoppingBasket
+      .basket__product
+        .img__wrapper
+          img(src=item.img alt='product')
+        .product-info
+          .product-info__title
+            h6 Комплект боксеров низкой посадки - Steel Micro
+            button
+            svg(width='24px' height='24px')
+              use(href=`./img/svg/header/clear-btn.svg#clear-btn`)
+          p 
+            span #{item.color}
+            span |
+            span #{item.size}
+          .product-info__footer
+            .product-info__counter 
+              button.decrease-counter
+                svg(width='24px' height='2px')
+                  use(href=`./img/svg/header/decrease.svg#decrease`)
+              p #{item.quantity}
+              button.increase-counter
+                svg(width='24px' height='24px')
+                  use(href=`./img/svg/header/increase.svg#increase`)
+            p.price #{item.price} ₽
+  p.subscription Стоимость доставки будет подсчитана при оформлении товара
+  .shopping-popup__summary
+    .summary__row
+      .summary__col
+        p Количество
+        p итого
+      .summary__col
+        p 3 шт
+        p 50 800 ₽
+    .summary__row
+      a.btn-fill(href='./shopping-cart.html') Оформить заказ

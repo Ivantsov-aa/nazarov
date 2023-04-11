@@ -1,0 +1,108 @@
+header.header
+  .header-container
+    // header mobile
+    button.hamburger-button 
+      span 
+      span 
+      span 
+    nav.header-menu
+      ul.header-menu__list
+        each item in menu
+          li(class=`header-menu__item ${item.value}`)
+            a(href=`./${item.value}.html`) #{item.name}
+    a(href="./").header-logo
+      svg
+        use(href=`./img/global/logo.svg#logo`)
+    ul.header-buttons__list.mobile
+      each item in menuButtons
+        if item === 'favorites'
+          li
+            a(href='./favorites.html' class=`header-buttons__button ${item}-btn`)
+              svg
+                use(href=`./img/svg/header/${item}.svg#${item}`)
+        if item === 'basket'
+          li
+            button(class=`header-buttons__button ${item}-btn-mobile`)
+              svg
+                use(href=`./img/svg/header/${item}.svg#${item}`)
+    // header desktop
+    .header-buttons
+      ul.header-buttons__list
+        each item in menuButtons
+          if item === 'search'
+            li
+              form.search-form
+                label
+                  button.search-btn
+                    svg(width='24px' height='25px')
+                      use(href=`./img/svg/header/${item}.svg#${item}`)
+                  input.search(type="text" placeholder='Поиск по каталогу')
+                  button.clear-btn
+                    svg(width='24px' height='24px')
+                      use(href=`./img/svg/header/clear-btn.svg#clear-btn`)
+          else if item === 'favorites'
+            li
+              a(href='./favorites.html' class=`header-buttons__button ${item}-btn`)
+                svg(width='24px' height='24px')
+                  use(href=`./img/svg/header/${item}.svg#${item}`)
+          else if item === 'basket'
+            li
+              button(class=`header-buttons__button ${item}-btn`)
+                svg(width='24px' height='24px')
+                  use(href=`./img/svg/header/${item}.svg#${item}`)
+                p.counter 1
+          else
+            li
+              button(class=`header-buttons__button ${item}-btn`)
+                svg(width='24px' height='24px')
+                  use(href=`./img/svg/header/${item}.svg#${item}`)
+  include ./header/header-dropdown
+  include ./catalog/filter
+include ./popup/popup
+.mobile-menu
+  nav 
+    ul 
+      li
+        form.search-form
+          label
+            button.search-btn
+              svg
+                use(href=`./img/svg/header/search.svg#search`)
+            input.search(type="text" placeholder='Поиск по каталогу')
+            button.clear-btn
+              svg(width='24px' height='24px')
+                use(href=`./img/svg/header/clear-btn.svg#clear-btn`)
+      each item in menu
+        if item.value === 'catalog'
+          li.dropdown-menu__catalog-wrapper
+            button(class=`header-menu__item title`) #{item.name}
+            .dropdown-menu-mobile
+              .dropdown-menu__col
+                .dropdown-menu__item.subcategory__title.link
+                  a(href='./catalog.html') Новинки
+              .dropdown-menu__col
+                .dropdown-menu__item.subcategory__title
+                  button Нижнее белье
+                ul.dropdown-menu__subcategories
+                  li.dropdown-menu__item.link
+                    a(href='./catalog.html') Слипы
+                  li.dropdown-menu__item.link
+                    a(href='./catalog.html') Боксеры
+                  li.dropdown-menu__item.link
+                    a(href='./catalog.html') Наборы
+              .dropdown-menu__col
+                .dropdown-menu__item.subcategory__title
+                  button Новый раздел
+                ul.dropdown-menu__subcategories
+                  li.dropdown-menu__item.link
+                    a(href='./catalog.html') Подраздел 1
+                  li.dropdown-menu__item.link
+                    a(href='./catalog.html') Подраздел 2
+              .dropdown-menu__col
+                .dropdown-menu__item.subcategory__title.link
+                  a(href='./catalog.html') Новый раздел
+        else
+          li(class=`header-menu__item title`)
+            a(href=`./${item.value}.html`) #{item.name}
+  button(class='btn-fill profile-btn-mobile') Войти / Зарегистрироваться 
+.disabled-bg-wrapper

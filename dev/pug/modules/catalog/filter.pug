@@ -1,0 +1,76 @@
+section.filter-bar
+  .filter-bar__row
+    .filter-bar__title
+      button.filter-bar__reset-btn Сбросить все
+      include ../page-breadcrumbs
+    .favorite__counter количество 6 шт
+    .filter-bar__panel 
+      .sort-select      
+      button.filter-btn Фильтр 
+        span.active-filter__counter
+  .filter-bar__row.filter-params
+    .active-filters
+    .filters
+      ul.filter-bar__col
+        li Категории
+        each item in catalogFilters.categories
+          li
+            label.checkbox
+              input.checkbox-input(type="checkbox" data-id=item.id name=item.name)
+              span 
+                svg(width='18px' height='18px')
+                  use(href=`./img/svg/header/default-checkbox.svg#default-checkbox`)
+              p #{item.name}
+      ul.filter-bar__col
+        li Коллекции
+        each item in catalogFilters.collections
+          li
+            label.checkbox
+              input.checkbox-input(type="checkbox" data-id=item.id name=item.name)
+              span 
+                svg(width='18px' height='18px')
+                  use(href=`./img/svg/header/default-checkbox.svg#default-checkbox`)
+              p #{item.name}
+      ul.filter-bar__col
+        li Цвет
+        each item in catalogFilters.colors
+          li
+            label.checkbox
+              input.checkbox-input(type="checkbox" data-id=item.id name=item.name)
+              span 
+                svg(width='18px' height='18px')
+                  use(href=`./img/svg/header/default-checkbox.svg#default-checkbox`)
+              p #{item.name}
+      ul.filter-bar__col
+        li Размер
+        each item in catalogFilters.sizes
+          li
+            label.checkbox
+              input.checkbox-input(type="checkbox" data-id=item.id name=item.name)
+              span 
+                svg(width='18px' height='18px')
+                  use(href=`./img/svg/header/default-checkbox.svg#default-checkbox`)
+              p #{item.name}
+      ul.filter-bar__col
+        li Материал
+        each item in catalogFilters.materials
+          li
+            label.checkbox
+              input.checkbox-input(type="checkbox" data-id=item.id name=item.name)
+              span 
+                svg(width='18px' height='18px')
+                  use(href=`./img/svg/header/default-checkbox.svg#default-checkbox`)
+              p #{item.name}
+      ul.filter-bar__col
+        li Цена
+        li.range
+          input.range-input(type='text' placeholder='790' data-id='20')
+          span 
+          input.range-input(type='text' placeholder='100 000' data-id='21')
+        li
+          label.checkbox
+            input.checkbox-input(type="checkbox" data-id='22' name='Сниженная цена')
+            span 
+              svg(width='18px' height='18px')
+                use(href=`./img/svg/header/default-checkbox.svg#default-checkbox`)
+            | Сниженная цена

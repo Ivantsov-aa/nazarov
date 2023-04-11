@@ -1,0 +1,443 @@
+.sc-main,
+.order-main {
+  display: grid;
+  grid-template-columns: 67% 33%;
+  padding-top: 130px;
+
+  @include xs-block {
+    grid-template-columns: 100%;
+    padding-top: 97px;
+  }
+
+  h3 {
+    text-transform: uppercase;
+    @include font-params(18px, 22px);
+    margin-bottom: 32px;
+    max-width: max-content;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  &__order-content {
+    padding: 64px 32px;
+    border-right: 2px solid #000;
+
+    @include xs-block {
+      padding: 32px 16px;
+      border: none;
+      border-bottom: 2px solid #000;
+    }
+
+    .basket__product {
+      @include flex-params(row, space-between, flex-start);
+      margin-bottom: 15px;
+
+      @include xs-block {
+        flex-direction: column;
+      }
+
+      .edit-params,
+      .edit-mode__buttons {
+        display: none;
+      }
+
+      &:last-child {
+        margin: 0;
+      }
+
+      .edit-params {
+        gap: 16px;
+
+        @include xs-block {
+          gap: 8px;
+        }
+
+        label {
+          padding: 0 16px;
+          padding-top: 8px;
+          height: 40px;
+          padding-right: 48px;
+          border: 2px solid #BABCC0;
+          position: relative;
+
+          select {
+            max-width: 54px;
+            appearance: none;
+          }
+
+          &::after {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: url('../img/svg//footer/top-up.svg') no-repeat center;
+            right: 16px;
+            top: 6px;
+            transform: rotate(180deg);
+          }
+
+          @include xs-block {
+            width: 100%;
+
+            select {
+              text-align: end;
+              max-width: 100%;
+            }
+          }
+        }
+
+        .counter {
+          height: 40px;
+          border: 2px solid #BABCC0;
+          @include flex-params(row, center, center);
+          padding: 0 16px;
+          gap: 16px;
+
+          button {
+            @include flex-params(row, center, center);
+            max-height: 24px;
+
+            &::after {
+              display: none;
+            }
+          }
+        }
+      }
+
+      .edit-mode__buttons {
+        width: 100%;
+        gap: 8px;
+
+        @include xs-block {
+          button {
+            width: 100%;
+          }
+        }
+      }
+
+      .product__col {
+        @include flex-params(row, flex-start, flex-start);
+        gap: 24px;
+        padding-top: 16px;
+
+        &:first-child {
+          flex-grow: 1;
+        }
+
+        @include xs-block {
+          &:last-child {
+            width: 100%;
+            justify-content: space-between;
+          }
+        }
+
+
+        .img__wrapper {
+          max-width: 100px;
+          max-height: 135px;
+          padding: 0 10px;
+          margin-bottom: 0;
+        }
+
+        .product-info {
+          h6 {
+            @include font-params(17px, 23px);
+            margin-bottom: 24px;
+          }
+
+          &__params {
+            @include flex-params(row, flex-start, center);
+            gap: 24px;
+
+            >span {
+              color: #babcc0;
+            }
+
+            @include xs-block {
+              flex-direction: column;
+              align-items: flex-start;
+
+              >span {
+                display: none;
+              }
+            }
+          }
+        }
+
+        label,
+        p {
+          @include font-params(15px, 18px);
+          font-weight: 700;
+          display: inline-block;
+          white-space: nowrap;
+
+          &.price {
+            padding: 6px 8px;
+            margin-right: 8px;
+          }
+
+          span {
+            @include font-params(14px, 20px);
+            font-weight: 400;
+            margin-left: 8px;
+          }
+        }
+
+        label {
+          input {
+            display: inline;
+            max-width: max-content;
+          }
+        }
+
+        .edit-buttons {
+          @include flex-params(column, flex-start, center);
+          gap: 16px;
+
+          @include xs-block {
+            flex-direction: row-reverse;
+          }
+
+          button {
+            color: #babcc0;
+            max-height: 24px;
+
+            &::after {
+              background: #000;
+            }
+
+            &:hover {
+              color: #000;
+            }
+          }
+        }
+      }
+
+      &.edit {
+        .product-info__params {
+          display: none;
+        }
+
+        .edit-params {
+          @include flex-params(row, flex-start, center);
+          margin-bottom: 32px;
+
+          @include xs-block {
+            flex-direction: column;
+            align-items: flex-end;
+          }
+        }
+
+        .edit-mode__buttons {
+          @include flex-params(row, flex-start, center);
+
+          @include xs-block {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+        }
+      }
+    }
+  }
+
+  &__order-total {
+    padding: 64px 32px;
+    width: 100%;
+
+    @include xs-block {
+      padding: 32px 16px;
+    }
+  }
+
+  &__order-info {
+    margin-bottom: 64px;
+
+    @include xs-block {
+      margin-bottom: 32px;
+    }
+
+    p {
+      @include flex-params(row, space-between, center);
+      @include font-params(15px, 18px);
+      margin-bottom: 16px;
+
+      &.delivery {
+        margin-bottom: 4px;
+      }
+
+      &.hint {
+        color: #babcc0;
+      }
+    }
+
+    label {
+      @include font-params(15px, 18px);
+      font-weight: 700;
+      position: relative;
+
+      &.active {
+        input {
+          max-width: 300px;
+        }
+
+        button {
+          &::before {
+            transform: rotate(40deg) translate(-1px, 4px);
+            width: 7px;
+          }
+
+          &::after {
+            transform: rotate(130deg) translate(-2px, -3px);
+          }
+        }
+      }
+
+      input {
+        border-bottom: 1px solid #000;
+        margin-left: 16px;
+        padding: 0;
+        max-width: 0;
+        transition: all $time;
+      }
+
+      button {
+        position: absolute;
+        height: 18px;
+        width: 18px;
+        right: -5px;
+
+        &::after,
+        &::before {
+          content: '';
+          display: inline-block;
+          position: absolute;
+          right: 5px;
+          top: 7px;
+          height: 2px;
+          width: 11px;
+          background: #000;
+          transition: all $time;
+        }
+
+        &::after {
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+
+  &__payment {
+    .row {
+      @include flex-params(row, space-between, center);
+      margin-bottom: 16px;
+    }
+
+    a {
+      text-align: center;
+      width: 100%;
+      margin-bottom: 32px;
+    }
+
+    p {
+      @include font-params(14px, 20px);
+      text-transform: uppercase;
+    }
+
+    h6 {
+      font-weight: 700;
+      @include font-params(18px, 22px);
+      text-transform: uppercase;
+    }
+
+    .payment-method {
+      @include flex-params(row, flex-start, center);
+      max-height: 50px;
+
+      p {
+        @include font-params(15px, 18px);
+        text-transform: none;
+        margin-right: 24px;
+      }
+
+      svg {
+        &:first-of-type {
+          margin-right: 16px;
+        }
+      }
+    }
+  }
+}
+
+.delete-pop__wrapper {
+  display: none;
+  position: fixed;
+  background: rgba($color: #000000, $alpha: 0.35);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 150;
+
+  &.active {
+    display: block;
+  }
+
+  .delete-popup {
+    position: absolute;
+    background: #fff;
+    border: 2px solid #000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 32px;
+    max-width: 635px;
+
+
+    @include xs-block {
+      max-width: calc(100% - 32px);
+      margin: 0 auto;
+      padding: 16px;
+      width: 100%;
+    }
+
+    h6 {
+      margin-bottom: 32px;
+      @include font-params(18px, 22px);
+
+      span {
+        display: inline;
+        text-transform: uppercase;
+        font-weight: 700;
+        @include font-params(19px, 30px);
+      }
+
+      @include xs-block {
+        @include font-params(16px, 20px);
+        margin-bottom: 16px;
+      }
+    }
+
+    .buttons {
+      @include flex-params(row, space-between, center);
+
+      @include xs-block {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      button {
+        width: calc(50% - 8px);
+        word-break: keep-all;
+        padding: 24px 52px;
+
+        @include xs-block {
+          padding: 8px 16px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

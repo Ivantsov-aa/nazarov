@@ -1,0 +1,39 @@
+.dropdown-menu {
+  @include flex-params(row, flex-start, flex-start);
+  gap: 64px;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 32px;
+  transition: all $time;
+
+  &.active {
+    max-height: 500px;
+    padding: 32px;
+
+    a {
+      color: #000;
+    }
+  }
+
+  &__col {
+    @include flex-params(column, flex-start, flex-start);
+    gap: 16px;
+  }
+
+  &__item {
+    a {
+      font-weight: 700;
+      @include font-params(15px, 18px);
+
+      &::after {
+        background: #000;
+      }
+    }
+
+    &:first-child {
+      a {
+        font-weight: 400;
+      }
+    }
+  }
+}

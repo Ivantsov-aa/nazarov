@@ -1,0 +1,5 @@
+<svg id='profile' viewBox="0 0 24 25" fill="none"
+  xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 15.9954C15.3137 15.9954 18 13.3091 18 9.99536C18 6.68165 15.3137 3.99536 12 3.99536C8.68629 3.99536 6 6.68165 6 9.99536C6 13.3091 8.68629 15.9954 12 15.9954Z" stroke="currentColor" stroke-width="2" stroke-miterlimit="10"/>
+  <path d="M2.90625 21.2453C3.82775 19.6489 5.15328 18.3232 6.74958 17.4015C8.34588 16.4798 10.1567 15.9945 12 15.9945C13.8433 15.9945 15.6541 16.4798 17.2504 17.4015C18.8467 18.3232 20.1722 19.6489 21.0938 21.2453" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
+</svg>

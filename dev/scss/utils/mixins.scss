@@ -1,0 +1,208 @@
+@use 'sass:math';
+
+@mixin absolute-center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+@mixin flex-params($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin triangle($width, $height, $bg, $direction) {
+  width: 0;
+  height: 0;
+  border-style: solid;
+
+  @if $direction == top {
+    border-width: 0 $width * 0.5 + px $height + px $width * 0.5 + px;
+    border-color: transparent transparent $bg transparent;
+  }
+  @if $direction == right {
+    border-width: $height * 0.5 + px 0 $height * 0.5 + px $width + px;
+    border-color: transparent transparent transparent $bg;
+  }
+  @if $direction == bottom {
+    border-width: $height + px $width * 0.5 + px 0 $width * 0.5 + px;
+    border-color: $bg transparent transparent transparent;
+  }
+  @if $direction == left {
+    border-width: $height * 0.5 + px $width + px $height * 0.5 + px 0;
+    border-color: transparent $bg transparent transparent;
+  }
+  @if $direction == topLeft {
+    border-width: $height + px $width + px 0 0;
+    border-color: $bg transparent transparent transparent;
+  }
+  @if $direction == topRight {
+    border-width: 0 $width + px $height + px 0;
+    border-color: transparent $bg transparent transparent;
+  }
+  @if $direction == bottomLeft {
+    border-width: $height + px 0 0 $width + px;
+    border-color: transparent transparent transparent $bg;
+  }
+  @if $direction == bottomRight {
+    border-width: 0 0 $height + px $width + px;
+    border-color: transparent transparent $bg transparent;
+  }
+}
+
+@mixin border-radius($topLeft, $topRight, $bottomRight, $bottomLeft) {
+  -webkit-border-radius: $topLeft $topRight $bottomRight $bottomLeft;
+  -moz-border-radius: $topLeft $topRight $bottomRight $bottomLeft;
+  -ms-border-radius: $topLeft $topRight $bottomRight $bottomLeft;
+  -o-border-radius: $topLeft $topRight $bottomRight $bottomLeft;
+  border-radius: $topLeft $topRight $bottomRight $bottomLeft;
+}
+
+@mixin lh($fontSize, $lineHeight) {
+  line-height: math.div($lineHeight, $fontSize);
+}
+
+@mixin font-params($fontSize, $lineHeight) {
+  font-size: $fontSize;
+  line-height: $lineHeight;
+}
+
+@function toVw($n) {
+  $width: var(--vwIdth);
+  @return calc(100vw / (#{$width} / #{$n}));
+}
+
+@function toVwVal($n) {
+  @return math.div(100vw, math.div(1920px, $n));
+}
+
+@function toVwXmdVal($n) {
+  @return math.div(100vw, math.div(1180px, $n));
+}
+
+@function toVwSmVal($n) {
+  @return math.div(100vw, math.div(990px, $n));
+}
+
+@function toVwXxsVal($n) {
+  @return math.div(100vw, math.div(375px, $n));
+}
+
+@mixin hover() {
+  @media screen and (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin ifScreenDevice() {
+  @media screen and (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+@mixin ifTouchDevice() {
+  @media screen and (hover: none) {
+    @content;
+  }
+}
+
+@mixin common-list-style {
+  padding-left: 30px;
+
+  & > li {
+    position: relative;
+    @include font(20);
+
+    @include sm-block() {
+      @include font(16);
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -25px;
+    }
+  }
+}
+
+@mixin ol-list {
+  @include common-list-style;
+
+  counter-reset: counter;
+
+  & > li {
+    &::before {
+      content: counter(counter);
+      counter-increment: counter;
+      top: 0px;
+      @include font(12);
+      color: $orange;
+    }
+  }
+}
+
+@mixin ul-list {
+  @include common-list-style;
+
+  & > li {
+    position: relative;
+
+    &::before {
+      content: '';
+      top: 9px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: $orange;
+    }
+  }
+}
+
+@mixin purple-bg {
+  .purple-bg {
+    padding: 20px;
+    border-radius: 10px;
+    background: radial-gradient(
+      94.61% 172.28% at 6.42% 3.94%,
+      $purple 0%,
+      #7037d1 45.62%,
+      #7a24cb 100%
+    );
+
+    &__wrap {
+      border: 20px solid transparent;
+      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.15);
+
+      @include sm-block() {
+        border-width: 10px;
+        border-radius: 10px;
+      }
+    }
+  }
+}

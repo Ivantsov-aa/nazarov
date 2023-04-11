@@ -1,0 +1,24 @@
+section.stores__wrapper
+  section.stores-list
+    each city in storesList
+      if city.city === 'Москва'
+        .stores-list__group.active
+          button.group__title(data-id=city.id) #{city.city}
+          each store in city.stores
+            .stores-list__store
+              p.type #{store.type}
+              h5.store-name #{store.name}
+              p #{store.address}
+              p #{store.time}
+              p #{store.tel}
+      else 
+        .stores-list__group
+          button.group__title(data-id=city.id) #{city.city}
+          each store in city.stores
+            .stores-list__store
+              p.type #{store.type}
+              h5.store-name #{store.name}
+              p #{store.address}
+              p #{store.time}
+              p #{store.tel}
+  section#map

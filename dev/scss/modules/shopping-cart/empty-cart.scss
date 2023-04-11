@@ -1,0 +1,19 @@
+.empty-cart {
+  padding-top: 242px;
+  text-align: center;
+
+  h3 {
+    @include font-params(28px, 39px);
+    margin-bottom: 24px;
+    text-transform: uppercase;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .btn-fill {
+    padding: 16px 24px;
+    margin-bottom: 64px;
+  }
+}

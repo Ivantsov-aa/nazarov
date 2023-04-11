@@ -1,0 +1,214 @@
+.new-collection {
+  width: 100%;
+  margin-bottom: 128px;
+
+  @include xxs-block() {
+    margin-bottom: 32px;
+  }
+
+  &__title {
+    @include flex-params(row, space-between, center);
+    margin-bottom: 32px;
+    padding: 0 32px;
+
+    h3 {
+      margin: 0;
+      text-transform: uppercase;
+      @include font-params(28px, 39px);
+    }
+
+    button {
+      @include font-params(19px, 23px);
+      font-weight: 600;
+      color: $black;
+
+      &::after {
+        background: $black;
+      }
+    }
+
+    @include xxs-block() {
+      padding: 0 15px;
+
+      button {
+        @include font-params(16px, 20px);
+        text-align: right;
+      }
+
+      h3 {
+        @include font-params(18px, 22px);
+      }
+    }
+  }
+
+  .new-collection__products {
+    padding: 0 8px;
+    max-width: 100%;
+    @include flex-params(row, space-around, center);
+    gap: 8px;
+
+    @include xxs-block() {
+      flex-wrap: wrap;
+      gap: 16px;
+
+      .product-cart__wrapper {
+        min-width: 45%;
+        gap: 8px;
+      }
+    }
+  }
+}
+
+.product-cart__wrapper {
+  position: relative;
+  width: calc(25% - 8px);
+  max-width: 466px;
+
+  &:hover {
+
+    .swiper-pagination,
+    .fullfilled-btn {
+      opacity: 1;
+    }
+
+    .swiper-slide {
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  .fullfilled-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    opacity: 0;
+  }
+
+  .swiper-pagination {
+    position: absolute;
+    top: 20px;
+    left: 16px;
+    width: max-content;
+    @include flex-params(row, space-between, center);
+    max-height: 16px;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity $time;
+
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      background: #273c76;
+      opacity: 1;
+      margin: auto;
+
+      &-active {
+        border: 2px solid #273c76;
+        width: 14px;
+        height: 14px;
+        background: none;
+      }
+    }
+  }
+
+  @include xxs-block {
+
+    .swiper-pagination,
+    .fullfilled-btn {
+      opacity: 1;
+    }
+
+    .swiper-pagination {
+      gap: 8px;
+      max-height: 10px;
+      top: 21px;
+
+      .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+
+        &.swiper-pagination-bullet-active {
+          width: 10px;
+          height: 10px;
+        }
+      }
+    }
+
+    .fullfilled-btn {
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+.product__cart {
+  @include flex-params(column, space-between, flex-start);
+  gap: 16px;
+  color: $black;
+  z-index: 0;
+
+  .latest,
+  .bestseller {
+    position: relative;
+
+    &::after {
+      content: 'Новинка';
+      color: #273c76;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      @include font-params(14px, 14px);
+      font-weight: 700;
+      padding: 8px;
+      border: 2px solid #273c76;
+      background: #fff;
+      width: max-content;
+      z-index: 1;
+      text-transform: uppercase;
+
+      @include xs-block {
+        padding: 4px;
+        @include font-params(12px, 12px);
+      }
+    }
+  }
+
+  .bestseller {
+    &::after {
+      content: 'Бестселлер';
+    }
+  }
+
+  .swiper-slide {
+    @include from($break_xs) {
+      &:after {
+        content: '';
+        display: block;
+        height: 2px;
+        width: 0;
+        background: #273c76;
+        transition: width $time;
+      }
+    }
+  }
+
+  h6 {
+    @include font-params(17px, 23px);
+    display: inline-block;
+
+    @include xxs-block {
+      @include font-params(16px, 20px);
+    }
+  }
+
+  p {
+    @include font-params(18px, 26px);
+
+    @include xxs-block {
+      @include font-params(16px, 20px);
+    }
+  }
+}

@@ -1,0 +1,33 @@
+main.mp-main
+  section.mp-main__banner-slider
+    include mp-slider
+  section.new-collection
+    .new-collection__title
+      h3 Новая коллекция
+      button Смотреть все
+    .new-collection__products
+      each item in products
+        .product-cart__wrapper
+          a.product__cart(href='./product-cart.html')
+            object.img__wrapper.latest
+              .swiper-wrapper
+                each item in products
+                  .swiper-slide
+                    img(src=item.img alt='banner')
+              .swiper-pagination
+            h6 #{item.title}
+            p #{item.price.toString().replace(/(\d)(?=(\d{3})+(\D|$))/g, '$1 ')} ₽
+          button.fullfilled-btn
+            svg
+              use(href=`./img/svg/header/favorites.svg#favorites`)
+  section.mp-main__banner
+    img(src=mainBanner alt='banner')
+    a(href='#').banner__link
+    div(class=`banner__text ${mainBannerTextPos}`)
+      h2 твой комфорт во всем
+      a(href='#') Смотреть коллекцию
+  form.mp__subscription-form
+    h4 Подписаться на новостную рассылку
+    .form__input
+      input(type='text' placeholder='Электронная почта')
+      input.btn-outline(type='submit' value='Подписаться')

@@ -1,0 +1,13 @@
+section.catalog__wrapper
+  section.catalog__list
+    .product-banner
+      img(src='./img/catalog/product-banner.png' alt='product-banner')
+  section.catalog__control-panel 
+    button.prev-page(data-value='0' disabled)
+      svg(width='24px' height='24px')
+        use(href=`./img/svg/footer/top-up.svg#top-up`)
+      | Назад
+    ul.page-list
+    button.next-page(data-value='2') Дальше
+      svg(width='24px' height='24px')
+        use(href=`./img/svg/footer/top-up.svg#top-up`)

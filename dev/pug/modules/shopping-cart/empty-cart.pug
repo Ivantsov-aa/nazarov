@@ -1,0 +1,35 @@
+.empty-cart
+  h3 ваша корзина пуста
+  a.btn-fill(href='./catalog.html') Продолжить покупки
+  .recomendation-slider
+    .slider__title 
+      h3 рекомендации
+      .slider__controllers
+        p 
+          span.current-slide 1
+          | #{' '}
+          span /
+          | #{' '}
+          span.length-slider 4
+        .slider__arrows 
+          button.prev-slide 
+            svg(width='24px' height='24px')
+              use(href=`./img/svg/footer/top-up.svg#top-up`)
+          button.next-slide 
+            svg(width='24px' height='24px')
+              use(href=`./img/svg/footer/top-up.svg#top-up`)
+    .new-collection__products
+      .slider__wrapper
+        .swiper-wrapper
+          each item in products
+            a.swiper-slide.product__cart(href='#')
+              .img__wrapper
+                img(src=item.img alt='banner')
+              h6 #{item.title}
+              p #{item.price.toString().replace(/(\d)(?=(\d{3})+(\D|$))/g, '$1 ')} ₽
+          each item in products
+            a.swiper-slide.product__cart(href='./product-cart.html')
+              .img__wrapper
+                img(src=item.img alt='banner')
+              h6 #{item.title}
+              p #{item.price.toString().replace(/(\d)(?=(\d{3})+(\D|$))/g, '$1 ')} ₽

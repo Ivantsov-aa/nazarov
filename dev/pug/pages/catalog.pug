@@ -1,0 +1,242 @@
+extends ../layout/main
+
+block variables
+  -
+    const title = 'NAZAROV';
+  -
+    const menu = [
+      {
+        name: 'Каталог',
+        value: 'catalog'
+      },
+      {
+        name: 'О нас',
+        value: 'about-us'
+      },
+      {
+        name: 'Магазины',
+        value: 'stores'
+      },
+    ];
+  -
+    const menuButtons = [
+      'search',
+      'favorites',
+      'profile',
+      'basket',
+    ]
+  -
+    const bannerSlider = [
+      {
+        title: 'Cotton Stretch',
+        img: './img/mp/slider/slide-1.png',
+        orientation: 'left'
+      },
+      {
+        title: 'Modern Cotton',
+        img: './img/mp/slider/slide-1.png',
+        orientation: 'center'
+      },
+      {
+        title: 'Still Micro',
+        img: './img/mp/slider/slide-1.png',
+        orientation: 'right'
+      }
+    ];
+  -
+    const products = [
+      {
+        title: 'Slim Fit Boxers - Modern Cotton',
+        price: 4800,
+        img: './img/catalog/slide-1.png'
+      },
+      {
+        title: 'Slim Fit Boxers - Modern Cotton',
+        price: 4800,
+        img: './img/catalog/slide-2.png'
+      },
+      {
+        title: 'Slim Fit Boxers - Modern Cotton',
+        price: 4800,
+        img: './img/catalog/slide-3.png'
+      },
+      {
+        title: 'Slim Fit Boxers - Modern Cotton',
+        price: 4800,
+        img: './img/catalog/slide-3.png'
+      }
+    ];
+  -
+    const mainBanner = './img/mp/banner.png';
+  -
+    const mainBannerTextPos = 'left';
+  -
+    const footer__soclinks = [
+      {
+        icon: 'instagram',
+        path: '#'
+      },
+      {
+        icon: 'facebook',
+        path: '#'
+      },
+      {
+        icon: 'vkontakte',
+        path: '#'
+      },
+      {
+        icon: 'youtube',
+        path: '#'
+      },
+      {
+        icon: 'twitter',
+        path: '#'
+      },
+      {
+        icon: 'tiktok',
+        path: '#'
+      }
+    ]
+  -
+    const shoppingBasket = [
+      {
+        name: 'Комплект боксеров низкой посадки - Steel Micro',
+        img: './img/catalog/basket.png',
+        color: 'Черный',
+        size: 'M',
+        quantity: 1,
+        price: 10800
+      },
+      {
+        name: 'Комплект боксеров низкой посадки - Steel Micro',
+        img: './img/catalog/basket.png',
+        color: 'Черный',
+        size: 'M',
+        quantity: 1,
+        price: 10800
+      },
+      {
+        name: 'Комплект боксеров низкой посадки - Steel Micro',
+        img: './img/catalog/basket.png',
+        color: 'Черный',
+        size: 'M',
+        quantity: 1,
+        price: 10800
+      }
+    ]
+  -
+    const catalogFilters = {
+      categories: [
+        {
+          id: 1,
+          name: 'Слипы',
+        },
+        {
+          id: 2,
+          name: 'Боксеры',
+        },
+        {
+          id: 3,
+          name: 'Наборы',
+        },
+        {
+          id: 4,
+          name: 'Новинки',
+        }
+      ],
+      collections: [
+        {
+          id: 5,
+          name: 'Classic',
+        },
+        {
+          id: 6,
+          name: 'Exclusive',
+        }
+      ],
+      colors: [
+        {
+          id: 7,
+          name: 'Белый',
+          value: 'white'
+        }, 
+        {
+          id: 8,
+          name: 'Серый',
+          value: 'gray'
+        },
+        {
+          id: 9,
+          name: 'Черный',
+          value: 'black'
+        },
+        {
+          id: 10,
+          name: 'Cиний',
+          value: 'blue'
+        },
+        {
+          id: 11,
+          name: 'Многоцветный',
+          value: 'multicolor'
+        }
+      ],
+      sizes: [
+        {
+          id: 12,
+          name: 'S',
+        },
+        {
+          id: 13,
+          name: 'M',
+        },
+        {
+          id: 14,
+          name: 'L',
+        },
+        {
+          id: 15,
+          name: 'XL',
+        },
+        {
+          id: 16,
+          name: 'XXL',
+        }
+      ],
+      materials: [
+        {
+          id: 17,
+          name: 'Модал',
+        },
+        {
+          id: 18,
+          name: 'Хлопок',
+        },
+        {
+          id: 19,
+          name: 'Эластан',
+        }
+      ]
+    }
+
+
+block libs-js
+  script(src='./js/scripts/select.js')
+  script(src="./libs/swiper-bundle.min.js")
+  script(src="./js/scripts/catalog.js")
+
+block libs-css
+  link(rel="stylesheet" href="./libs/swiper-bundle.min.css")
+  link(rel="stylesheet" href="./libs/aos.min.css")
+  link(rel="stylesheet" href="./css/mp.css")
+
+block content
+  style.
+    :root {
+      --main-color: #273C76;
+    }
+
+  .catalog-wrapper
+    include ../modules/header
+    include ../modules/catalog/products
+    include ../modules/footer

@@ -1,0 +1,218 @@
+.footer {
+  border-top: 2px solid $black;
+  position: relative;
+
+  &__wrapper {
+    padding: 64px 32px;
+    @include flex-params(row, space-between, flex-start);
+    flex-wrap: wrap;
+    gap: 24px;
+
+    @include xmd-block {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 32px 16px;
+
+      .footer__col {
+        &:nth-child(2) {
+          grid-row: 1;
+          grid-column: 2;
+        }
+
+        &:nth-child(3) {
+          grid-row: 2;
+          grid-column: 1 / span 3;
+        }
+
+        &:nth-child(4) {
+          grid-row: 1;
+          grid-column: 3;
+        }
+      }
+    }
+
+    @include xmd-block {
+      display: grid;
+      grid-template-columns: 100%;
+      gap: 24px;
+
+      .footer__col {
+        &:nth-child(1) {
+          grid-row: 2;
+          grid-column: 1;
+        }
+
+        &:nth-child(2) {
+          grid-column: 1;
+          grid-row: 3;
+        }
+
+        &:nth-child(3) {
+          grid-column: 1;
+          grid-row: 4;
+        }
+
+        &:nth-child(4) {
+          grid-column: 1;
+          grid-row: 1;
+        }
+
+        .footer__row {
+          margin-bottom: 8px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &__col {
+    h6 {
+      @include font-params(17px, 23px);
+    }
+
+    a {
+      display: block;
+      color: $black;
+      @include font-params(18px, 26px);
+      margin-bottom: 8px;
+      max-width: max-content;
+
+      &:last-child {
+        margin: 0;
+      }
+
+      &:hover {
+        &:after {
+          background: $black;
+        }
+      }
+
+      &:after {
+        background: $black;
+      }
+    }
+
+    &.add-info {
+      a {
+        &:hover {
+          color: $black;
+
+          &:after {
+            background: $black;
+          }
+        }
+      }
+
+      a,
+      p,
+      span {
+        color: #babcc0;
+        @include font-params(14px, 140%);
+
+        span {
+          display: block;
+        }
+      }
+
+      @include xs-block {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 24px;
+
+        p {
+          @include font-params(12px, 15px);
+        }
+      }
+    }
+  }
+
+  &__row {
+    &:nth-child(1) {
+      @include flex-params(row, flex-start, center);
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    &:nth-child(2) {
+      @include flex-params(column, flex-start, flex-start);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    &:nth-child(3) {
+      @include flex-params(row, flex-start, center);
+      gap: 24px;
+    }
+
+    &.policy {
+      @include flex-params(row, space-between, flex-start);
+      gap: 32px;
+
+      @include xmd-block() {
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      @include xs-block {
+        gap: 8px;
+      }
+
+      a {
+        margin: 0;
+      }
+
+      span {
+        a {
+          display: inline-block;
+        }
+      }
+    }
+
+    &.footer__soclinks {
+      align-items: center;
+      margin: 0;
+      width: 100%;
+      justify-content: space-between;
+
+      a {
+        @include flex-params(row, center, center);
+        margin: 0;
+      }
+    }
+  }
+
+  .top-up {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    transition: all $time;
+    bottom: 64px;
+    right: 32px;
+    background: #fff;
+
+    @include xmd-block() {
+      bottom: 32px;
+    }
+
+    &:after {
+      display: none;
+    }
+
+    &:hover {
+      background: #000;
+      transition: all $time;
+
+      svg {
+        color: #fff;
+      }
+    }
+
+    svg {
+      color: #000;
+    }
+  }
+}

@@ -1,0 +1,274 @@
+extends ../layout/main
+
+block variables
+  -
+    const title = 'NAZAROV';
+  -
+    const menu = [
+      {
+        name: 'Каталог',
+        value: 'catalog'
+      },
+      {
+        name: 'О нас',
+        value: 'about-us'
+      },
+      {
+        name: 'Магазины',
+        value: 'stores'
+      },
+    ];
+  -
+    const menuButtons = [
+      'search',
+      'favorites',
+      'profile',
+      'basket',
+    ]
+  -
+    const bannerSlider = [
+      {
+        title: 'Cotton Stretch',
+        img: './img/mp/slider/slide-1.png',
+        orientation: 'left'
+      },
+      {
+        title: 'Modern Cotton',
+        img: './img/mp/slider/slide-1.png',
+        orientation: 'center'
+      },
+      {
+        title: 'Still Micro',
+        img: './img/mp/slider/slide-1.png',
+        orientation: 'right'
+      }
+    ];
+  -
+    const products = [
+      {
+        title: 'Slim Fit Boxers - Modern Cotton',
+        price: 4800,
+        collection: 'PURPLE Label',
+        img: './img/catalog/slide-1.png'
+      },
+      {
+        title: 'Slim Fit Boxers - Modern Cotton',
+        price: 4800,
+        collection: 'Double rl for men',
+        img: './img/catalog/slide-2.png'
+      },
+      {
+        title: 'Slim Fit Boxers - Modern Cotton',
+        price: 4800,
+        collection: 'PURPLE Label',
+        img: './img/catalog/slide-3.png'
+      },
+      {
+        title: 'Slim Fit Boxers - Modern Cotton',
+        price: 4800,
+        collection: 'PURPLE Label',
+        img: './img/catalog/slide-3.png'
+      }
+    ];
+  -
+    const mainBanner = './img/mp/banner.png';
+  -
+    const mainBannerTextPos = 'left';
+  -
+    const footer__soclinks = [
+      {
+        icon: 'instagram',
+        path: '#'
+      },
+      {
+        icon: 'facebook',
+        path: '#'
+      },
+      {
+        icon: 'vkontakte',
+        path: '#'
+      },
+      {
+        icon: 'youtube',
+        path: '#'
+      },
+      {
+        icon: 'twitter',
+        path: '#'
+      },
+      {
+        icon: 'tiktok',
+        path: '#'
+      }
+    ]
+  -
+    const shoppingBasket = [
+      {
+        id: 1,
+        name: 'Комплект боксеров низкой посадки - Steel Micro',
+        img: './img/catalog/basket.png',
+        color: 'Черный',
+        size: 'M',
+        quantity: 1,
+        price: '10 800'
+      },
+      {
+        id: 2,
+        name: 'Комплект боксеров низкой посадки - Steel Micro',
+        img: './img/catalog/basket.png',
+        color: 'Черный',
+        size: 'M',
+        quantity: 1,
+        price: '10 800'
+      },
+      {
+        id: 3,
+        name: 'Комплект боксеров низкой посадки - Steel Micro',
+        img: './img/catalog/basket.png',
+        color: 'Черный',
+        size: 'M',
+        quantity: 1,
+        price: '10 800'
+      }
+    ]
+  -
+    const catalogFilters = {
+      categories: [
+        {
+          id: 1,
+          name: 'Слипы',
+        },
+        {
+          id: 2,
+          name: 'Боксеры',
+        },
+        {
+          id: 3,
+          name: 'Наборы',
+        },
+        {
+          id: 4,
+          name: 'Новинки',
+        }
+      ],
+      collections: [
+        {
+          id: 5,
+          name: 'Classic',
+        },
+        {
+          id: 6,
+          name: 'Exclusive',
+        }
+      ],
+      colors: [
+        {
+          id: 7,
+          name: 'Белый',
+          value: 'white'
+        }, 
+        {
+          id: 8,
+          name: 'Серый',
+          value: 'gray'
+        },
+        {
+          id: 9,
+          name: 'Черный',
+          value: 'black'
+        },
+        {
+          id: 10,
+          name: 'Cиний',
+          value: 'blue'
+        },
+        {
+          id: 11,
+          name: 'Многоцветный',
+          value: 'multicolor'
+        }
+      ],
+      sizes: [
+        {
+          id: 12,
+          name: 'S',
+        },
+        {
+          id: 13,
+          name: 'M',
+        },
+        {
+          id: 14,
+          name: 'L',
+        },
+        {
+          id: 15,
+          name: 'XL',
+        },
+        {
+          id: 16,
+          name: 'XXL',
+        }
+      ],
+      materials: [
+        {
+          id: 17,
+          name: 'Модал',
+        },
+        {
+          id: 18,
+          name: 'Хлопок',
+        },
+        {
+          id: 19,
+          name: 'Эластан',
+        }
+      ]
+    }
+  -
+    const storesList = [
+      {
+        id: 1,
+        city: 'Москва',
+        stores: [
+          {
+            type: 'Корнер',
+            name: 'ТРЦ «Афимолл Сити»',
+            address: 'Пресненская наб., 2',
+            work_time: '10:00-22:00',
+            tel: '+7 (999) 000-00-00'
+          }
+        ]
+      },
+      {
+        id: 2,
+        city: 'Минск',
+        stores: [
+          {
+            type: 'Корнер',
+            name: 'ТРЦ «Дана Молл»',
+            address: 'ул. Петра Мстиславца 9',
+            work_time: '10:00-22:00',
+            tel: '+375 (33) 000-00-00'
+          }
+        ]
+      },
+    ]
+
+
+block libs-js
+  script(src='./js/scripts/shopping-cart.js')
+
+block libs-css
+  link(rel="stylesheet" href="./libs/swiper-bundle.min.css")
+
+block content
+  style.
+    :root {
+      --main-color: #273C76;
+    }
+
+  .wrapper
+    include ../modules/header
+    include ../modules/shopping-cart/sc-main
+    include ../modules/footer

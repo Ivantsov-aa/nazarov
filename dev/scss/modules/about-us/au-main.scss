@@ -1,0 +1,223 @@
+.au-main {
+  padding-top: 178px;
+
+  @include xs-block {
+    padding-top: 97px;
+  }
+
+  &__banner {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 64px;
+    height: calc(100vh - 178px);
+    overflow: hidden;
+
+    @include xs-block {
+      height: calc(100vh - 97px);
+      margin-bottom: 32px;
+    }
+
+    img {
+      width: 100%;
+      object-fit: cover;
+
+      @include xs-block {
+        height: 100%;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba($color: #000000, $alpha: 0.35);
+    }
+
+    .banner__text {
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, 0);
+      z-index: 2;
+      max-width: 630px;
+      width: 100%;
+
+      @include xs-block {
+        top: 40%;
+        max-width: 75%;
+        left: 50% !important;
+      }
+
+      &.left {
+        left: 25%;
+      }
+
+      &.center {
+        left: 50%;
+      }
+
+      &.right {
+        left: 75%;
+      }
+
+      h1 {
+        @include font-params(18px, 22px);
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $white;
+        margin: 0 0 48px;
+      }
+
+      p {
+        @include font-params(19px, 30px);
+        color: #fff;
+        position: relative;
+
+        &::before,
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 24px;
+          height: 24px;
+          background: url('../img/svg/about-us/el_quotes.svg') no-repeat center;
+          top: 0;
+          left: -40px;
+        }
+
+        &::after {
+          top: auto;
+          left: auto;
+          right: -24px;
+          bottom: 0;
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 25% 39% 25%;
+    justify-content: space-between;
+    grid-template-rows: 575px 390px;
+    gap: 64px 0;
+    margin-bottom: 128px;
+
+    @include xs-block {
+      grid-template-columns: 100%;
+      margin-bottom: 32px;
+      grid-template-rows: auto;
+      gap: 24px;
+    }
+
+    .block {
+      @include flex-params(column, flex-end, flex-start);
+      gap: 32px;
+
+      h6 {
+        @include font-params(19px, 30px);
+      }
+
+      p {
+        @include font-params(18px, 26px);
+      }
+
+      &:nth-child(1) {
+        background: url('../img/about-us/image-1.png') no-repeat;
+        background-size: cover;
+        // background-attachment: fixed;
+        // background-size: 25% 100%;
+        // background-position-y: 100px;
+      }
+
+      &:nth-child(3) {
+        background: url('../img/about-us/image-2.png') no-repeat;
+        background-size: cover;
+        // background-attachment: fixed;
+        // background-size: 40% 100%;
+        // background-position-y: 100px;
+        // background-position-x: 100%;
+      }
+
+      &:nth-child(4) {
+        background: url('../img/about-us/image-3.png') no-repeat;
+        background-size: cover;
+        // background-attachment: fixed;
+        // background-size: 50% 100%;
+        // background-position-y: 100px;
+      }
+
+      &:nth-child(6) {
+        background: url('../img/about-us/image-4.png') no-repeat;
+        background-size: cover;
+        // background-attachment: fixed;
+        // background-size: 40% 100%;
+        // background-position-y: 100px;
+        // background-position-x: 100%;
+      }
+
+      @include xs-block {
+        grid-column: 1;
+        min-height: 200px;
+
+        &:nth-child(1),
+        &:nth-child(3),
+        &:nth-child(4),
+        &:nth-child(5) {
+          display: none;
+        }
+
+        &:nth-child(2) {
+          grid-column: 1;
+          padding: 0 15px;
+        }
+      }
+    }
+  }
+
+  .au-main__collections {
+    padding: 0 8px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 128px;
+
+    @include xs-block {
+      margin-bottom: 32px;
+    }
+
+    h3 {
+      @include font-params(18px, 22px);
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    .collections__wrapper {
+      @include flex-params(row, space-between, center);
+      gap: 8px;
+
+      @include xs-block {
+        display: grid;
+        grid-template-columns: 48% 48%;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      h6 {
+        @include font-params(18px, 22px);
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #000000;
+        margin-top: 16px;
+
+        span {
+          display: block;
+        }
+      }
+    }
+  }
+}

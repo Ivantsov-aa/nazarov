@@ -1,0 +1,113 @@
+section.pc-main 
+  section.pc-main__params 
+    section.gallery 
+      .params__cover 
+        img(src='./img/catalog/slide-3.png')
+      .swiper-container
+        .swiper-wrapper
+          each item in products
+            a.swiper-slide.product__cart(href='#')
+              img(src=item.img alt='banner')
+        .swiper-pagination
+    section.params__info
+      .info__title
+        h6 Новинка
+        button.fullfilled-btn
+          svg
+            use(href=`./img/svg/header/favorites.svg#favorites`)
+      h3 Комплект боксеров низкой посадки - Steel Micro
+      p.price 10 800 ₽
+        span 4 800 ₽
+      .color-picker
+        each item in colorBlock 
+          if item === '#FFFFFF'
+            button.color-btn(style={background: item, border: '2px solid #000000'})
+          else 
+            button.color-btn(style={background: item})
+      .size-picker 
+        each item in catalogFilters.sizes
+          button.size-btn #{item.name}
+      .counter 
+        button 
+          svg(width='24px' height='2px')
+            use(href=`./img/svg/minus.svg#minus`)
+        p 1
+        button 
+          svg(width='24px' height='24px')
+            use(href=`./img/svg/plus.svg#plus`)
+      button.btn-fill Добавить в корзину
+  section.pc-main__description 
+    section.description__tabs
+      button.desc-btn.active Описание
+      button.delivery-btn Доставка и возврат
+    section.description__content.active
+      section.description__text
+        p Трусы-шорты, боксеры и брифы принимаются к возврату только в оригинальной закрытой упаковке, неношеные, в том виде, в котором они были доставлены, со всеми ярлыками.
+        .params
+          p Категория
+            span Боксеры
+          p Коллекция
+            span Classic   
+          p Материал
+            span 92% хлопок, 8% эластан   
+        div
+          p Минималистские, экологичные модели в подлинном стиле Calvin Klein. Наша линейка MODERN STRUCTURE создана из переработанных материалов и украшена культовым поясом с логотипом с современной матовой и блестящей отделкой.
+          ul 
+            li эластичный смесовый хлопок
+            li сделано из переработанных волокон
+            li средняя посадка
+            li фирменный эластичный пояс Calvin Klein
+            li 57% хлопок 38% переработанный полиэстер 5% эластан
+      section.desc__table
+        h6 Таблица соответствия размеров
+        section.table 
+          .table__row
+            .table__cell INT
+            each item in sizesMap.int
+              .table__cell #{item}
+          .table__row
+            .table__cell RUS
+            each item in sizesMap.rus
+              .table__cell #{item}
+          .table__row
+            .table__cell Обхват талии, см
+            each item in sizesMap.waist
+              .table__cell #{item}
+          .table__row
+            .table__cell Обхват бедер, см
+            each item in sizesMap.hip
+              .table__cell #{item}
+    section.delivery__content
+      p В настоящее время мы не можем отправлять заказы, гарантировать возврат товаров или возмещение денежных средств в этом регионе. 
+  section.recomendation-slider
+    .slider__title 
+      h3 вам понравится
+      .slider__controllers
+        p 
+          span.current-slide 1
+          | #{' '}
+          span /
+          | #{' '}
+          span.length-slider 4
+        .slider__arrows 
+          button.prev-slide 
+            svg(width='24px' height='24px')
+              use(href=`./img/svg/footer/top-up.svg#top-up`)
+          button.next-slide 
+            svg(width='24px' height='24px')
+              use(href=`./img/svg/footer/top-up.svg#top-up`)
+    .new-collection__products
+      .slider__wrapper
+        .swiper-wrapper
+          each item in products
+            a.swiper-slide.product__cart(href='#')
+              .img__wrapper
+                img(src=item.img alt='banner')
+              h6 #{item.title}
+              p #{item.price.toString().replace(/(\d)(?=(\d{3})+(\D|$))/g, '$1 ')} ₽
+          each item in products
+            a.swiper-slide.product__cart(href='./product-cart.html')
+              .img__wrapper
+                img(src=item.img alt='banner')
+              h6 #{item.title}
+              p #{item.price.toString().replace(/(\d)(?=(\d{3})+(\D|$))/g, '$1 ')} ₽

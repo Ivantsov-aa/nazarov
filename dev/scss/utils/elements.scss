@@ -1,0 +1,224 @@
+.btn-outline {
+  border: 2px solid $black;
+  padding: 22px 56px;
+  color: $black;
+  transition: all $time;
+  @include font-params(17px, 21px);
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    color: $white;
+    background: $black;
+    transition: all $time;
+  }
+
+  &::after {
+    display: none;
+  }
+}
+
+.btn-fill {
+  padding: 24px 56px;
+  background: $black;
+  color: $white;
+  transition: all $time;
+  @include font-params(17px, 21px);
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    background: #273c76;
+    transition: all $time;
+  }
+
+  &::after {
+    display: none;
+  }
+}
+
+.btn-fill,
+.btn-outline {
+  @include xs-block {
+    padding: 8px 0;
+    @include font-params(16px, 20px);
+
+    &.btn-outline {
+      padding: 6px 0;
+    }
+  }
+}
+
+.fullfilled-btn {
+  z-index: 10;
+  scale: 1;
+  transition: all $time;
+
+  &:active {
+    scale: 1.2;
+
+    svg {
+      fill: #273c76;
+      color: #273c76;
+    }
+  }
+
+  .active {
+    svg {
+      fill: #273c76;
+      color: #273c76;
+    }
+  }
+
+  svg {
+    fill: transparent;
+    color: #000;
+    width: 24px;
+    height: 24px;
+  }
+
+  &::after {
+    display: none;
+  }
+}
+
+a,
+button {
+  color: $white;
+  @include font-params(19px, 23px);
+  position: relative;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background: $white;
+    transition: width $time;
+  }
+
+  &:hover {
+    &:after {
+      width: 100%;
+      transition: width $time;
+    }
+  }
+
+  @include xxs-block {
+    &::after {
+      display: none;
+    }
+  }
+}
+
+h3 {
+  @include from($break_xs) {
+    &:after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 0;
+      background: $black;
+      transition: width $time;
+    }
+
+    &:hover {
+      &:after {
+        width: 100%;
+        transition: width $time;
+      }
+    }
+  }
+}
+
+.close-popup {
+  transform: rotate(0);
+  transition: transform 0.6s ease-in-out;
+  color: #000;
+  align-self: flex-start;
+  padding: 0;
+
+  @include xs-block {
+    align-items: flex-end;
+  }
+
+  &:hover {
+    svg {
+      transform: rotate(360deg);
+      transition: transform 0.6s ease-in-out;
+    }
+  }
+
+  &::after {
+    display: none;
+  }
+}
+
+input[type='checkbox'] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox {
+  @include flex-params(row, space-between, flex-start);
+  gap: 16px;
+  @include font-params(14px, 20px);
+  margin-bottom: 24px;
+  cursor: pointer;
+  position: relative;
+
+  span {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      background: url('../img/svg/header/checked.svg') no-repeat center;
+      top: 3px;
+      left: 3px;
+      width: 12px;
+      height: 12px;
+      background-size: contain;
+      scale: 0;
+      transition: all $time;
+    }
+  }
+
+  svg {
+    color: #babcc0;
+  }
+}
+
+input[type='checkbox']:checked+span {
+  svg {
+    color: #000;
+  }
+
+  &::after {
+    scale: 1;
+    transition: all $time;
+  }
+}
+
+.img__wrapper {
+  @include flex-params(row, center, flex-end);
+  background: #f3f4f4;
+  height: 100%;
+  max-height: 630px;
+  width: 100%;
+
+  img {
+    height: 100%;
+    max-height: 630px;
+    width: 100%;
+    background: #f0f0f0;
+    object-fit: contain;
+  }
+}

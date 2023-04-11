@@ -1,0 +1,5 @@
+<svg id="search" viewBox="0 0 24 25" fill="none"
+  xmlns="http://www.w3.org/2000/svg">
+  <path d="M10.875 19.7454C15.2242 19.7454 18.75 16.2196 18.75 11.8704C18.75 7.52112 15.2242 3.99536 10.875 3.99536C6.52576 3.99536 3 7.52112 3 11.8704C3 16.2196 6.52576 19.7454 10.875 19.7454Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M16.4438 17.4391L21.0001 21.9953" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
+</svg>

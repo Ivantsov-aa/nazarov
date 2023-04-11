@@ -1,0 +1,128 @@
+.mp-main {
+  width: 100%;
+
+  .banner__link {
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .banner__link:hover~.banner__text a {
+    &::after {
+      width: 100%;
+    }
+  }
+
+  .banner__text {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    max-width: 247px;
+
+    &.left {
+      left: 25%;
+    }
+
+    &.center {
+      left: 50%;
+    }
+
+    &.right {
+      left: 75%;
+    }
+
+    h1,
+    h2 {
+      @include font-params(50px, 68px);
+      text-transform: uppercase;
+      color: $white;
+      margin: 0 0 24px;
+
+      @include xxs-block() {
+        @include font-params(32px, 40px);
+      }
+    }
+
+    h2 {
+      @include font-params(38px, 53px);
+
+      @include xxs-block() {
+        width: 100%;
+        @include font-params(24px, 30px);
+      }
+    }
+
+    a {
+      color: $white;
+      @include font-params(19px, 23px);
+
+      &:after {
+        content: '';
+        display: block;
+        height: 2px;
+        width: 0;
+        background: $white;
+        transition: width $time;
+      }
+
+      @include from($break_xs) {
+        &:hover {
+          &:after {
+            width: 100%;
+            transition: width $time;
+          }
+        }
+      }
+
+      @include xxs-block {
+        @include font-params(16px, 20px);
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .mp-main__banner {
+    position: relative;
+    max-width: 100%;
+    height: 100%;
+    margin-bottom: 128px;
+
+    @include xxs-block() {
+      margin-bottom: 32px;
+      height: 100vh;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .banner__link {
+      width: 100%;
+    }
+
+    .banner__text {
+      max-width: 320px;
+
+      @include xxs-block {
+        max-width: 150px;
+
+        a {
+          max-width: min-content;
+        }
+      }  
+    }
+  }
+}

@@ -1,0 +1,207 @@
+.form {
+  &-item {
+    position: relative;
+    display: block;
+
+    &:not(:last-child) {
+      margin-bottom: 25px;
+    }
+
+    &__agreement {
+      display: flex;
+      align-items: center;
+      align-items: flex-start;
+    }
+
+    &__name {
+      position: absolute;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+    }
+
+    &--has-star {
+      .form-item__name {
+        &::after {
+          content: '*';
+        }
+      }
+    }
+
+    &__icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 1px solid var(--main-color);
+
+      @include xs-block() {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 15px;
+      }
+
+      .icon {
+        display: block;
+        width: 35%;
+        height: 35%;
+        fill: transparent;
+        stroke: var(--main-color);
+      }
+    }
+
+    &::after {
+      content: attr(data-error-text);
+      position: absolute;
+      top: 100%;
+      left: 0;
+      color: $orange;
+      @include font(12);
+      width: 100%;
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      transform: translateY(100%);
+      opacity: 0;
+      pointer-events: none;
+
+      @include xs-block() {
+        @include font(10);
+      }
+    }
+
+    &.invalid {
+      .checkbox-marker {
+        border-color: $orange;
+
+        &::before {
+          border-color: $orange;
+        }
+      }
+
+      &::after {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    textarea {
+      height: 100px;
+      resize: none;
+    }
+
+    textarea,
+    input[type='text'],
+    input[type='email'] {
+      display: block;
+      width: 100%;
+      padding: 0 10px 15px;
+      @include font(17);
+      color: $black;
+      border-bottom: 1px solid $gray-light;
+      transition: border-color $time ease-in-out;
+
+      @include xs-block() {
+        @include font(15);
+        padding: 0 10px 10px;
+      }
+
+      @include placeholder() {
+        color: $gray-light;
+      }
+
+      &:focus {
+        border-color: var(--main-color);
+      }
+    }
+  }
+
+  &-succes {
+    transition: transform $time ease-in-out, opacity $time ease-in-out;
+    opacity: 0;
+    transform: translateY(10%);
+
+    &._animate {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  }
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &-marker {
+    vertical-align: middle;
+    width: 22px;
+    height: 22px;
+    border: 1px solid $black;
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+    transition: border-color $time ease-in-out;
+
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 40%;
+      height: 20%;
+      border-bottom: 1px solid var(--main-color);
+      border-left: 1px solid var(--main-color);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg) scale(0);
+      transition: transform $time ease-in-out;
+    }
+  }
+
+  &-text {
+    margin-left: 10px;
+    @include font(16);
+    transition: color $time ease-in-out;
+
+    @include xs-block() {
+      @include font(14);
+    }
+
+    a {
+      color: var(--main-color);
+      transition: color $time ease-in-out;
+
+      @include hover() {
+        color: $black;
+      }
+    }
+  }
+
+  input[type='checkbox'] {
+    display: none;
+
+    &:checked {
+      & ~ .checkbox-marker {
+        background-color: $white;
+        border-color: var(--main-color);
+
+        &::before {
+          transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+        }
+      }
+    }
+  }
+
+  @include hover {
+    .checkbox {
+      &-marker {
+        border-color: var(--main-color);
+      }
+
+      &-text {
+        color: var(--main-color);
+      }
+    }
+  }
+}

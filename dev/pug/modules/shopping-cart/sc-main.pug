@@ -1,0 +1,85 @@
+.sc-main
+  .sc-main__order-content
+    h3 мой заказ
+    each item in shoppingBasket
+      .basket__product(data-id=item.id)
+        .product__col
+          .img__wrapper
+            img(src=item.img alt='product')
+          .product-info
+            h6 Комплект боксеров низкой посадки - Steel Micro
+            .product-info__params
+              p Цвет
+                span #{item.color}
+              span |
+              p Размер
+                span #{item.size}
+              span |
+              p Количество
+                span #{item.quantity} шт
+            .edit-params
+              label
+                | Цвет
+                select
+                  each item in catalogFilters.colors
+                    option #{item.name}
+              label
+                | Размер
+                select
+                  each item in catalogFilters.sizes
+                    option #{item.name}
+              .counter 
+                button 
+                  svg(width='24px' height='2px')
+                    use(href=`./img/svg/minus.svg#minus`)
+                p 1
+                button 
+                  svg(width='24px' height='24px')
+                    use(href=`./img/svg/plus.svg#plus`)
+            .edit-mode__buttons 
+              button.btn-outline Отменить
+              button.btn-fill Сохранить изменения
+        .product__col
+          p.price #{item.price} ₽
+          .edit-buttons 
+            button.delete-btn(data-id=item.id)
+              svg(width='24px' height='24px')
+                use(href=`./img/svg/header/clear-btn.svg#clear-btn`)
+            button.edit-btn(data-id=item.id)
+              svg(width='24px' height='24px')
+                use(href=`./img/svg/edit.svg#edit`)
+  .sc-main__order-total
+    h3 информация о заказе
+    .sc-main__order-info 
+      p Стоимость заказа
+        span 50 800 ₽
+      p Сумма скидки
+        span 10 800 ₽
+      p.delivery Доставка
+        span ---
+      p.hint Сумма будет подсчитана при оформлении товара
+      label.promocode Ввести промокод
+        input 
+        button.promocode-btn 
+    .sc-main__payment
+      .row 
+        p Количество
+        p 3 шт
+      .row 
+        h6 итого
+        h6 50 800 ₽
+      a(href='./order.html').btn-fill Оформить заказ
+      .payment-method 
+        p Как можно оплатить
+        svg(width='50px' height='50px')
+          use(href=`./img/svg/visa.svg#visa`)
+        svg(width='50px' height='50px')
+          use(href=`./img/svg/mastercard.svg#mastercard`)
+.delete-pop__wrapper
+  .delete-popup
+    h6 Вы уверены, что хотите удалить товар “
+      span Комплект боксеров низкой посадки Steel Micro
+      | ” из корзины?
+    .buttons
+      button.btn-outline.cancel-delete Отменить удаление
+      button.btn-fill.apply-delete Удалить
